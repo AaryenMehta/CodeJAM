@@ -1,0 +1,1 @@
+Went to the student search website, search.pclub.in/api/students and then searched for random person. After inspecting(ctrl+shift+i) the page, found a students.json file. Copied it. Used the file in the code and designed a GUI that takes blood group with RH factor as input and outputs/sends mail to the mailing_list. According to the button chosen.
