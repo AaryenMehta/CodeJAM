@@ -114,7 +114,9 @@ def sendmail():
     
     f.close()
     
-    s = smtplib.SMTP('mmtp.iitk.ac.in') #smtp server of iitk
+    s = smtplib.SMTP('smtp.cc.iitk.ac.in',25) #smtp server of iitk
+    s.starttls()
+    s.login("Email","Password")
     s.set_debuglevel(1)
     
     msg = MIMEText("Respected Sir/Madam,\nThere is an urgent requirement for blood in the HC for Mr.Mukesh. Please contact Dr. Mohan for further details.")
@@ -131,6 +133,8 @@ def sendmail():
     
     print("ALERT:",len,"people who can donate to",bgrp,"blood group have been notified of your email")
     
+    s.quit()
+
     return
 
 if __name__ == '__main__':
@@ -139,7 +143,7 @@ if __name__ == '__main__':
     window.geometry("240x240")
     window.title("Blood Donation")
     
-    lbl = Label(window,text="Enter Blood Group Here")
+    lbl = Label(window,text="Enter Required Blood Group with \nRH Factor Here")
     lbl.pack()
     
     e = Entry(window)
